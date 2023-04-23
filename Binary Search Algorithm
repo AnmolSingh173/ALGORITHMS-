@@ -1,0 +1,49 @@
+// To implement Binary Search Algorithm ( DIVIDE AND CONQUER APPROACH )
+#include<iostream>
+using namespace std;
+
+
+// defining the binary search function 
+int BS(int arr[],int key,int n){
+    int low=0;
+    int high=n-1;
+    while(low<=high){ 
+    int mid=((high+low)/2);
+    if (arr[mid]== key){
+        return mid;
+    }
+    else if ( arr[mid]<key){
+    low =mid+1;
+    }
+
+    else {
+        high = mid-1;
+    }
+    }
+    return -1;
+      
+}
+
+int main(){
+//  initializing the array and taking the input 
+    int n;
+    cout<<"enter the size of the array ";
+    cin>>n;
+    int arr[n];
+    cout<<"enter the elements of the array ";
+    for (int i =0;i<n;i++){
+        int a;
+        cout<<"enter the "<<i+1<<"th element - ";
+        cin>>a;
+        arr[i]=a;
+
+    }
+// giving output using the function 
+    int key;
+    cout<<"eter the element who's index you want to search : ";
+    cin>>key;        
+    int pos = BS(arr,key,n); 
+
+    cout<<"the element is at the "<<pos<<"th index";
+
+}
